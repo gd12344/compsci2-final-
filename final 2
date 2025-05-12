@@ -3,8 +3,53 @@
 #include <vector>
 #include <sstream>
 
-int main(){
+using namespace std;
+
+class Vehicle {
+protected:
+    string make;
+    string model;
+    int year;
+
+public:
+    Vehicle(string mk, string mdl, int yr);
+    virtual void displayInfo() const;
+};
+
+Vehicle::Vehicle(string mk, string mdl, int yr)
+{
+    make = mk;
+    model = mdl;
+    year = yr;
+}
+
+void Vehicle::displayInfo() const {
+    cout << year << " " << make << " " << model << endl;
+}
 
 
-return 0;
+
+
+
+struct Node {
+    Vehicle* vehicle;
+    Node* next;
+};
+
+class Inventory {
+private:
+    Node* head = nullptr;
+
+public:
+    void addVehicle(Vehicle* v);
+    void displayAll() const;
+};
+
+
+
+
+int main() {
+
+
+    return 0;
 }
